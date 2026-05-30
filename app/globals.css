@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   Custom design tokens for the dark portfolio
+   ───────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark navy background palette */
+  --bg-primary: #050b18;
+  --bg-secondary: #0a1628;
+  --bg-card: #0d1f35;
+  --bg-card-hover: #112440;
+
+  /* Blue accent palette */
+  --accent-blue: #2563eb;
+  --accent-blue-light: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-glow: rgba(37, 99, 235, 0.3);
+
+  /* Text palette */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Border */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(37, 99, 235, 0.4);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─────────────────────────────────────────────
+   Utility: subtle animated gradient glow
+   Used on hero headline and section accents
+   ───────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #60a5fa, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-glow {
+    border: 1px solid var(--border-subtle);
+    transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+  }
+
+  .card-glow:hover {
+    border-color: var(--border-accent);
+    box-shadow: 0 0 24px var(--accent-glow);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(
+            rgba(255, 255, 255, 0.04) 1px,
+            transparent 1px
+    );
+    background-size: 28px 28px;
+  }
 }

@@ -1,0 +1,101 @@
+﻿/**
+ * AboutSection — "The Mind Behind the Code"
+ *
+ * Left: rounded image with blue gradient background
+ * Right: heading, bio text, stats (Years of experience, Projects completed), CTAs
+ */
+import { Zap } from "lucide-react";
+import {
+    ABOUT_CONTENT,
+    ABOUT_STATS,
+    ABOUT_CTA,
+    ABOUT_IMAGE,
+} from "@/constants/about";
+
+export default function AboutSection() {
+    return (
+        <section id="about" className="py-24 px-6 bg-[#050b18] border-t border-white/5">
+            <div className="max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                    {/* Left: Image */}
+                    <div className="flex justify-center lg:justify-start">
+                        <div className="relative w-full max-w-xs">
+
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl blur-2xl opacity-40" />
+
+                            <div className="relative rounded-3xl overflow-hidden aspect-[3/4]">
+                                <img
+                                    src={ABOUT_IMAGE.src}
+                                    alt={ABOUT_IMAGE.alt}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right: Content */}
+                    <div className="flex flex-col gap-6">
+
+                        {/* Overline */}
+                        <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+              {ABOUT_CONTENT.overline}
+            </span>
+
+                        {/* Heading */}
+                        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                            The <span className="text-blue-400">{ABOUT_CONTENT.heading.highlight}</span> Behind
+                            <br />
+                            {ABOUT_CONTENT.heading.line2}
+                        </h2>
+
+                        {/* Bio */}
+                        <div className="flex flex-col gap-3 text-slate-400 text-sm leading-relaxed">
+                            {ABOUT_CONTENT.bio.map((text, i) => (
+                                <p key={i}>{text}</p>
+                            ))}
+                        </div>
+
+                        {/* Stats */}
+                        <div className="grid grid-cols-2 gap-4 py-4">
+                            {ABOUT_STATS.map((stat, i) => (
+                                <div key={i}>
+                                    <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold text-slate-100">
+                      {stat.value}
+                    </span>
+                                        <span className="text-slate-400 text-sm">
+                      {stat.suffix}
+                    </span>
+                                    </div>
+                                    <span className="text-slate-400 text-xs mt-1 block">
+                    {stat.label}
+                  </span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* CTAs */}
+                        <div className="flex gap-3 pt-2">
+                            <a
+                                href={ABOUT_CTA.primary.href}
+                                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-200"
+                            >
+                                <Zap size={15} />
+                                {ABOUT_CTA.primary.label}
+                            </a>
+
+                            <a
+                                href={ABOUT_CTA.secondary.href}
+                                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-slate-300 rounded-full border border-slate-700 hover:border-slate-500 hover:text-white transition-all duration-200"
+                            >
+                                {ABOUT_CTA.secondary.label}
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
