@@ -19,6 +19,7 @@
 // import CredentialsSection from "@/components/portfolio/CredentialsSection";
 // import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import AboutSection from "@/components/portfolio/AboutSection";
+import Navbar from "@/components/portfolio/NavBar";
 // import ProcessSection from "@/components/portfolio/ProcessSection";
 // import ContactSection from "@/components/portfolio/ContactSection";
 // import Footer from "@/components/portfolio/Footer";
@@ -26,7 +27,7 @@ import AboutSection from "@/components/portfolio/AboutSection";
 export default function Home() {
   return (
       <>
-        {/*<Navbar />*/}
+        <Navbar />
         <main>
           {/*<HeroSection />*/}
           {/*<ServicesSection />*/}
