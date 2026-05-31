@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import {NAVBAR_CONFIG} from "@/constants/navbar.ts";
+import { FiMenu, FiX } from "react-icons/fi";import {NAVBAR_CONFIG} from "@/constants/navbar.ts";
+
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -104,7 +104,7 @@ export default function Navbar() {
                     aria-label={menuOpen ? "Close menu" : "Open menu"}
                     onClick={() => setMenuOpen((prev) => !prev)}
                 >
-                    {menuOpen ? <X size={22} /> : <Menu size={22} />}
+                    {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
                 </button>
             </nav>
 

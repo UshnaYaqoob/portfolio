@@ -20,6 +20,7 @@
 // import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import AboutSection from "@/components/portfolio/AboutSection";
 import Navbar from "@/components/portfolio/NavBar";
+import ContactSection from "@/components/portfolio/ContactSection";
 // import ProcessSection from "@/components/portfolio/ProcessSection";
 // import ContactSection from "@/components/portfolio/ContactSection";
 // import Footer from "@/components/portfolio/Footer";
@@ -35,7 +36,7 @@ export default function Home() {
           {/*<ProjectsSection />*/}
           <AboutSection />
           {/*<ProcessSection />*/}
-          {/*<ContactSection />*/}
+          <ContactSection />
         </main>
         {/*<Footer />*/}
       </>

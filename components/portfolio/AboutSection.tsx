@@ -4,8 +4,7 @@
  * Left: rounded image with blue gradient background
  * Right: heading, bio text, stats (Years of experience, Projects completed), CTAs
  */
-import { Zap } from "lucide-react";
-import {
+import { MdFlashOn } from "react-icons/md";import {
     ABOUT_CONTENT,
     ABOUT_STATS,
     ABOUT_CTA,
@@ -81,7 +80,7 @@ export default function AboutSection() {
                                 href={ABOUT_CTA.primary.href}
                                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-200"
                             >
-                                <Zap size={15} />
+                                <MdFlashOn size={15} />
                                 {ABOUT_CTA.primary.label}
                             </a>
 
