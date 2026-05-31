@@ -23,6 +23,8 @@ import Navbar from "@/components/portfolio/NavBar";
 import ContactSection from "@/components/portfolio/ContactSection";
 import HeroSection from "@/components/portfolio/HeroSection";
 import ServicesSection from "@/components/portfolio/ServicesSection";
+import CredentialsSection from "@/components/portfolio/CredentialsSection";
+import Footer from "@/components/portfolio/Footer";
 // import ProcessSection from "@/components/portfolio/ProcessSection";
 // import ContactSection from "@/components/portfolio/ContactSection";
 // import Footer from "@/components/portfolio/Footer";
@@ -34,13 +36,13 @@ export default function Home() {
         <main>
           <HeroSection />
           <ServicesSection />
-          {/*<CredentialsSection />*/}
+          <CredentialsSection />
           {/*<ProjectsSection />*/}
           <AboutSection />
           {/*<ProcessSection />*/}
           <ContactSection />
         </main>
-        {/*<Footer />*/}
+        <Footer />
       </>
   );
 }
