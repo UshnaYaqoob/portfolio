@@ -22,6 +22,7 @@ import AboutSection from "@/components/portfolio/AboutSection";
 import Navbar from "@/components/portfolio/NavBar";
 import ContactSection from "@/components/portfolio/ContactSection";
 import HeroSection from "@/components/portfolio/HeroSection";
+import ServicesSection from "@/components/portfolio/ServicesSection";
 // import ProcessSection from "@/components/portfolio/ProcessSection";
 // import ContactSection from "@/components/portfolio/ContactSection";
 // import Footer from "@/components/portfolio/Footer";
@@ -32,7 +33,7 @@ export default function Home() {
         <Navbar />
         <main>
           <HeroSection />
-          {/*<ServicesSection />*/}
+          <ServicesSection />
           {/*<CredentialsSection />*/}
           {/*<ProjectsSection />*/}
           <AboutSection />
