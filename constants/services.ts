@@ -1,18 +1,10 @@
-﻿import {
-    FaCode,
-    FaDatabase,
-    FaBolt,
-    FaMicrochip,
-} from "react-icons/fa";
-
-import type { ServiceItem } from "@/types/services";
+﻿import type { ServiceItem } from "@/types/services";
 
 export const SERVICES: ServiceItem[] = [
     {
-        icon: FaCode,
+        iconKey: "code",
         title: "Full-Stack Web Applications",
-        description:
-            "End-to-end development of scalable web applications, from clean user interfaces to reliable backend systems.",
+        description: "End-to-end development of scalable web applications, from clean user interfaces to reliable backend systems.",
         points: [
             "React & TypeScript frontends",
             "Backend APIs & databases",
@@ -21,10 +13,9 @@ export const SERVICES: ServiceItem[] = [
         techs: ["React", "TypeScript", "Node", ".NET", "Supabase"],
     },
     {
-        icon: FaBolt,
+        iconKey: "bolt",
         title: "Real-Time & Secure Systems",
-        description:
-            "Design and implementation of real-time features with secure access control for modern web platforms.",
+        description: "Design and implementation of real-time features with secure access control for modern web platforms.",
         points: [
             "Live queues & notifications",
             "Role-based access control (RBAC)",
@@ -33,10 +24,9 @@ export const SERVICES: ServiceItem[] = [
         techs: ["Supabase", "JWT", "Subscriptions", "APIs"],
     },
     {
-        icon: FaDatabase,
+        iconKey: "database",
         title: "Dashboards & Analytics",
-        description:
-            "Interactive dashboards and reporting systems that help businesses visualize data and make informed decisions.",
+        description: "Interactive dashboards and reporting systems that help businesses visualize data and make informed decisions.",
         points: [
             "Power BI dashboards",
             "Sales & performance insights",
@@ -45,10 +35,9 @@ export const SERVICES: ServiceItem[] = [
         techs: ["Power BI", "SQL", "PostgreSQL", "MySQL"],
     },
     {
-        icon: FaMicrochip,
+        iconKey: "microchip",
         title: "Backend & API Engineering",
-        description:
-            "Robust backend architectures and APIs built for scalability, data integrity, and long-term maintainability.",
+        description: "Robust backend architectures and APIs built for scalability, data integrity, and long-term maintainability.",
         points: [
             "REST API development",
             "Database modeling & validation",

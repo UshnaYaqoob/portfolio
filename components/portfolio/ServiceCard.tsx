@@ -1,69 +1,251 @@
-﻿import TechBadge from "./TechBadge";
-import type { ServiceCardProps } from "@/types/service";
+﻿// "use client";
+//
+// import { useState } from "react";
+// import { FaCode, FaBolt, FaDatabase, FaMicrochip } from "react-icons/fa";
+// import type { IconType } from "react-icons";
+// import type { ServiceCardProps } from "@/types/services";
+//
+// const ICON_MAP: Record<string, IconType> = {
+//     code:      FaCode,
+//     bolt:      FaBolt,
+//     database:  FaDatabase,
+//     microchip: FaMicrochip,
+// };
+//
+// const SERVICE_IMAGES: Record<string, string> = {
+//     "Full-Stack Web Applications": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=700&q=80",
+//     "Real-Time & Secure Systems":  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80",
+//     "Dashboards & Analytics":      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80",
+//     "Backend & API Engineering":   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80",
+// };
+//
+// export default function ServiceCard({
+//                                         iconKey,
+//                                         title,
+//                                         description,
+//                                         points,
+//                                         techs,
+//                                     }: ServiceCardProps) {
+//     const [hovered, setHovered] = useState(false);
+//     const Icon = ICON_MAP[iconKey];
+//     const image = SERVICE_IMAGES[title];
+//
+//     return (
+//         <div
+//             onMouseEnter={() => setHovered(true)}
+//             onMouseLeave={() => setHovered(false)}
+//             className="relative rounded-2xl overflow-hidden flex flex-col bg-[#0d1b2e] border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer min-h-[340px]"
+//         >
+//             {/* Full-card background image — only visible + blurred on hover */}
+//             {image && (
+//                 <div
+//                     className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+//                     style={{
+//                         backgroundImage: `url(${image})`,
+//                         opacity: hovered ? 1 : 0,
+//                         filter: "blur(3px) brightness(0.3)",
+//                         transform: hovered ? "scale(1.05)" : "scale(1)",
+//                     }}
+//                 />
+//             )}
+//
+//             {/* Dark overlay on hover to deepen the blur effect */}
+//             {hovered && (
+//                 <div className="absolute inset-0 bg-[#050d1a]/60 z-[1]" />
+//             )}
+//
+//             {/* Content */}
+//             <div className="relative z-20 p-7 flex flex-col gap-3 flex-1">
+//
+//                 {Icon && (
+//                     <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-600/20 text-blue-400 mb-1">
+//                         <Icon size={20} />
+//                     </div>
+//                 )}
+//
+//                 <h3 className="text-xl font-bold text-white leading-snug">{title}</h3>
+//
+//                 <p className="text-[#8a9bb5] text-sm leading-relaxed">{description}</p>
+//
+//                 {/* Revealed on hover */}
+//                 <div
+//                     className="flex flex-col gap-4 mt-2 transition-all duration-500"
+//                     style={{
+//                         opacity: hovered ? 1 : 0,
+//                         transform: hovered ? "translateY(0)" : "translateY(12px)",
+//                         maxHeight: hovered ? "300px" : "0px",
+//                         overflow: "hidden",
+//                     }}
+//                 >
+//                     <div>
+//                         <p className="text-white/60 text-sm mb-2">What's Included:</p>
+//                         <ul className="flex flex-col gap-1.5">
+//                             {points.map((point, idx) => (
+//                                 <li key={idx} className="flex items-start gap-2 text-[#dce8f8] text-sm">
+//                                     <span className="flex-shrink-0 mt-0.5">•</span>
+//                                     {point}
+//                                 </li>
+//                             ))}
+//                         </ul>
+//                     </div>
+//                     <div className="flex flex-wrap gap-2">
+//                         {techs.map((tech) => (
+//                             <span
+//                                 key={tech}
+//                                 className="px-3 py-1.5 rounded-full text-xs font-medium text-white border border-white/35 bg-transparent"
+//                             >
+//                                 {tech}
+//                             </span>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+//
+//             {/* Bottom image thumbnail — visible by default, fades out on hover */}
+//             <div
+//                 className="relative z-20 mx-5 mb-5 rounded-xl overflow-hidden transition-all duration-500"
+//                 style={{
+//                     opacity: hovered ? 0 : 1,
+//                     maxHeight: hovered ? "0px" : "200px",
+//                     marginBottom: hovered ? "0px" : "",
+//                 }}
+//             >
+//                 {image && (
+//                     <img src={image} alt={title} className="w-full h-44 object-cover rounded-xl" />
+//                 )}
+//             </div>
+//         </div>
+//     );
+// }
+
+
+"use client";
+
+import { useState } from "react";
+import { FaCode, FaBolt, FaDatabase, FaMicrochip } from "react-icons/fa";
+import type { IconType } from "react-icons";
+import type { ServiceCardProps } from "@/types/services";
+
+const ICON_MAP: Record<string, IconType> = {
+    code:      FaCode,
+    bolt:      FaBolt,
+    database:  FaDatabase,
+    microchip: FaMicrochip,
+};
+
+const SERVICE_IMAGES: Record<string, string> = {
+    "Full-Stack Web Applications": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=700&q=80",
+    "Real-Time & Secure Systems":  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80",
+    "Dashboards & Analytics":      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80",
+    "Backend & API Engineering":   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80",
+};
 
 export default function ServiceCard({
-                                        icon: Icon,
+                                        iconKey,
                                         title,
                                         description,
                                         points,
                                         techs,
                                     }: ServiceCardProps) {
+    const [hovered, setHovered] = useState(false);
+    const Icon = ICON_MAP[iconKey];
+    const image = SERVICE_IMAGES[title];
+
     return (
         <div
-            className="
-        relative rounded-2xl p-6 flex flex-col gap-4 overflow-hidden
-        bg-[#0a1628]
-        border-2 border-blue-500/20
-        hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-600/20
-        transition-all duration-300
-        group
-      "
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            className="relative rounded-2xl overflow-hidden bg-[#0d1b2e] border border-white/10 hover:border-white/20 cursor-pointer h-[420px]"
         >
-            {/* Glow */}
+            {/* BG image — always rendered, fades in on hover */}
+            {image && (
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(${image})`,
+                        opacity: hovered ? 1 : 0,
+                        filter: "blur(4px) brightness(0.5)",
+                        transform: hovered ? "scale(1.06)" : "scale(1.0)",
+                        transition: "opacity 0.5s ease, transform 0.5s ease",
+                    }}
+                />
+            )}
+
+            {/* Dark overlay on hover */}
             <div
-                aria-hidden
-                className="
-          absolute inset-0 opacity-0 group-hover:opacity-100
-          bg-gradient-to-br from-blue-600/5 to-cyan-600/5
-          transition-opacity duration-300 pointer-events-none
-        "
+                className="absolute inset-0 z-[1]"
+                style={{
+                    background: hovered ? "rgba(5,13,26,0.3)" : "transparent",
+                    transition: "background 0.5s ease",
+                }}
             />
 
-            <div className="relative z-10 flex flex-col gap-4">
+            {/* Text content — fixed at top, always visible */}
+            <div className="absolute top-0 left-0 right-0 z-20 p-7 flex flex-col gap-3">
+                {Icon && (
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-600/20 text-blue-400 mb-1">
+                        <Icon size={20} />
+                    </div>
+                )}
 
-                {/* Icon */}
-                <div className="w-11 h-11 rounded-lg flex items-center justify-center bg-blue-600/20 text-blue-400 group-hover:bg-blue-600/30 transition-colors duration-200">
-                    <Icon size={22} />
+                <h3 className="text-xl font-bold text-white leading-snug">{title}</h3>
+
+                <p className="text-[#8a9bb5] text-sm leading-relaxed">{description}</p>
+
+                {/* Slides in on hover */}
+                <div
+                    style={{
+                        opacity: hovered ? 1 : 0,
+                        transform: hovered ? "translateY(0)" : "translateY(10px)",
+                        maxHeight: hovered ? "300px" : "0px",
+                        overflow: "hidden",
+                        transition: "opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, max-height 0.5s ease",
+                    }}
+                >
+                    <div className="flex flex-col gap-4 mt-2">
+                        <div>
+                            <p className="text-white/60 text-sm mb-2">What's Included:</p>
+                            <ul className="flex flex-col gap-1.5">
+                                {points.map((point, idx) => (
+                                    <li key={idx} className="flex items-start gap-2 text-[#dce8f8] text-sm">
+                                        <span className="flex-shrink-0 mt-0.5">•</span>
+                                        {point}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="flex flex-wrap gap-2 pb-2">
+                            {techs.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className="px-3 py-1.5 rounded-full text-xs font-medium text-white border border-white/35 bg-transparent"
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-bold text-slate-100 leading-snug">
-                    {title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-400 text-sm leading-relaxed">
-                    {description}
-                </p>
-
-                {/* Points */}
-                <ul className="flex flex-col gap-2 my-1">
-                    {points.map((point, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-slate-400 text-sm">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0" />
-                            {point}
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Techs */}
-                <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-white/10">
-                    {techs.map((tech) => (
-                        <TechBadge key={tech} label={tech} />
-                    ))}
-                </div>
-
             </div>
+
+            {/* Image thumbnail — absolute at bottom, slides UP and out on hover */}
+            <div
+                className="absolute bottom-0 left-0 right-0 z-20 px-5 pb-5"
+                style={{
+                    transform: hovered ? "translateY(-100%)" : "translateY(0%)",
+                    opacity: hovered ? 0 : 1,
+                    transition: "transform 0.5s ease, opacity 0.4s ease",
+                }}
+            >
+                {image && (
+                    <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-44 object-cover rounded-xl"
+                    />
+                )}
+            </div>
+
         </div>
     );
 }
