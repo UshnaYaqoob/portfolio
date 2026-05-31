@@ -5,7 +5,7 @@ import type { NavLink, SocialLink } from "@/types/footer";
 export const BRAND = {
     name: "DevFolio",
     tagline:
-        "Building scalable, performant web applications for ambitious teams.",
+        "Building scalable, performance web applications for ambitious teams.",
 };
 
 export const QUICK_LINKS: NavLink[] = [

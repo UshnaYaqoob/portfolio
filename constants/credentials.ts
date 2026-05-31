@@ -9,7 +9,7 @@ import type { Credential } from "@/types/credentials";
 
 export const CREDENTIALS: Credential[] = [
     {
-        company: "BITSLogic PVT Ltd",
+        company: "BITLogix PVT Ltd",
         role: "Software Engineer",
         icon: FaUserTie,
     },

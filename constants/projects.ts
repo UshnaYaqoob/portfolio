@@ -10,7 +10,7 @@ export const PROJECTS: Project[] = [
     {
         layout: "left",
         image: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
-        badge: "LawCuria",
+        badge: "LawCurgus",
         icon: FaBuilding,
         title: "Legal Management Platform",
         description: "A structured, role-based system enabling law firms to manage operations efficiently.",
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
     {
         layout: "right",
         image: "https://images.pexels.com/photos/5632395/pexels-photo-5632395.jpeg?auto=compress&cs=tinysrgb&w=800",
-        badge: "Greensource",
+        badge: "Greenounce",
         icon: FaGraduationCap,
         title: "Real-Time School Pickup Queue System",
         description: "Improved parent experience and smoothed school pickup operations.",

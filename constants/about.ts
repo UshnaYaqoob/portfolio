@@ -7,7 +7,7 @@
     },
     bio: [
         "I'm a Full-Stack Developer with hands-on experience building production-ready applications used by legal firms, schools, and global platforms.",
-        "Currently working as an Associate Software Engineer at BITLogic, I focus on building secure, scalable systems from role-based platforms to real-time applications and analytics dashboards.",
+        "Currently working as an Associate Software Engineer at BITLogix, I focus on building secure, scalable systems from role-based platforms to real-time applications and analytics dashboards.",
     ],
 };
 

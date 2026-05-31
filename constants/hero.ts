@@ -13,7 +13,7 @@ export const HERO_CONTENT = {
         line2: "Scalable Web Applications",
     },
 
-    bio: `Hi, I'm Uishna Yaqoob. I design and develop high-performance web applications using React, TypeScript, Supabase, and .NET. From real-time queue systems to secure, role-based platforms, I turn complex requirements into reliable digital solutions.`,
+    bio: `Hi, I'm Ushna Yaqoob. I design and develop high-performance web applications using React, TypeScript, Supabase, and .NET. From real-time queue systems to secure, role-based platforms, I turn complex requirements into reliable digital solutions.`,
 };
 
 export const HERO_CTA = {
