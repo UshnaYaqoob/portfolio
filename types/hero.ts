@@ -1,11 +1,22 @@
 ﻿import { IconType } from "react-icons";
 
-export interface SkillTag {
-    label: string;
+export interface HeroCTA {
+    primary: {
+        label: string;
+        href: string;
+        icon?: IconType;
+    };
+    secondary: {
+        label: string;
+        href: string;
+    };
 }
 
-export interface HeroCTA {
-    label: string;
-    href: string;
-    icon?: IconType;
+export interface HeroContent {
+    headline: {
+        line1: string;
+        highlight: string;
+        line2: string;
+    };
+    bio: string;
 }

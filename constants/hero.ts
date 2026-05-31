@@ -1,4 +1,4 @@
-﻿import { FaArrowRight } from "react-icons/fa";
+﻿import { FaPaperPlane } from "react-icons/fa";
 
 export const SKILL_TAGS = [
     "Full-Stack Web Development",
@@ -12,15 +12,15 @@ export const HERO_CONTENT = {
         highlight: "Building",
         line2: "Scalable Web Applications",
     },
-
-    bio: `Hi, I'm Ushna Yaqoob. I design and develop high-performance web applications using React, TypeScript, Supabase, and .NET. From real-time queue systems to secure, role-based platforms, I turn complex requirements into reliable digital solutions.`,
+    bio:
+        "I design and develop high-performance web applications using React, TypeScript, Supabase, and .NET. From real-time systems to secure platforms, I turn complex requirements into reliable solutions.",
 };
 
 export const HERO_CTA = {
     primary: {
         label: "View My Work",
         href: "#projects",
-        icon: FaArrowRight,
+        icon: FaPaperPlane,
     },
     secondary: {
         label: "Let's Talk",
