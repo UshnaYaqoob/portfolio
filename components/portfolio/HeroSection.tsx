@@ -137,26 +137,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#050d1a]/20 via-transparent to-[#050d1a]/50 pointer-events-none" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-4xl w-full text-center">
-
-                {/* Skill Tags */}
-                <div className="flex flex-wrap items-center justify-center gap-7 mb-6">
-                    {SKILL_TAGS.map((tag, index) => (
-                        <span
-                            key={tag}
-                            className="inline-flex items-center gap-2 text-sm font-medium text-slate-200"
-                        >
-                            <span
-                                className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                                style={{
-                                    background:
-                                        DOT_COLORS[index % DOT_COLORS.length],
-                                }}
-                            />
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+            <div className="relative z-10 max-w-5xl w-full text-center">
 
                 {/* Heading */}
                 <h1
@@ -183,9 +164,26 @@ export default function HeroSection() {
                         {HERO_CONTENT.headline.line2}
                     </span>
                 </h1>
-
+                {/* Skill Tags */}
+                <div className="flex flex-wrap items-center justify-center gap-7 mb-6">
+                    {SKILL_TAGS.map((tag, index) => (
+                        <span
+                            key={tag}
+                            className="inline-flex items-center gap-2 text-sm font-medium text-slate-200"
+                        >
+                            <span
+                                className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                                style={{
+                                    background:
+                                        DOT_COLORS[index % DOT_COLORS.length],
+                                }}
+                            />
+                            {tag}
+                        </span>
+                    ))}
+                </div>
                 {/* Bio */}
-                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-4xl mx-auto mb-10">
                     {HERO_CONTENT.bio}
                 </p>
 
