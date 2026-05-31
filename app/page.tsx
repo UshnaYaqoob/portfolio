@@ -26,6 +26,7 @@ import ServicesSection from "@/components/portfolio/ServicesSection";
 import CredentialsSection from "@/components/portfolio/CredentialsSection";
 import Footer from "@/components/portfolio/Footer";
 import ProjectsSection from "@/components/portfolio/ProjectsSection";
+import ProcessSection from "@/components/portfolio/ProcessSection";
 // import ProcessSection from "@/components/portfolio/ProcessSection";
 // import ContactSection from "@/components/portfolio/ContactSection";
 // import Footer from "@/components/portfolio/Footer";
@@ -40,7 +41,7 @@ export default function Home() {
           <CredentialsSection />
           <ProjectsSection />
           <AboutSection />
-          {/*<ProcessSection />*/}
+          <ProcessSection />
           <ContactSection />
         </main>
         <Footer />

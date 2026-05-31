@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import { useEffect, useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";import {NAVBAR_CONFIG} from "@/constants/navbar.ts";
+import { FiMenu, FiX } from "react-icons/fi";
+import {NAVBAR_CONFIG} from "@/constants/navbar";
 
 
 export default function Navbar() {
