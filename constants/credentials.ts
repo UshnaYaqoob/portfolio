@@ -1,31 +1,24 @@
-﻿import {
-    FaBuilding,
-    FaMedal,
-    FaGraduationCap,
-    FaUserTie,
-} from "react-icons/fa";
-
-import type { Credential } from "@/types/credentials";
+﻿import type { Credential } from "@/types/credentials";
 
 export const CREDENTIALS: Credential[] = [
     {
-        company: "BITLogix PVT Ltd",
-        role: "Software Engineer",
-        icon: FaUserTie,
+        title: "Software Engineer",
+        subtitle: "at BITLogix Pvt. Ltd",
+        image: "/bitlogix.svg",
     },
     {
-        company: "FAST-NUCES",
-        role: "Dean's List Fall 2023 & Spring 2023",
-        icon: FaBuilding,
+        title: "Dean's List",
+        subtitle: "Fall 2023 & Spring 2023",
+        image: "/deanslist.svg",
     },
     {
-        company: "FAST-NUCES",
-        role: "Bronze Medalist (Fall 2023)",
-        icon: FaMedal,
+        title: "Bronze Medalist",
+        subtitle: "Fall 2023",
+        image: "/bronze.svg",
     },
     {
-        company: "FAST-NUCES",
-        role: "BS Computer Science",
-        icon: FaGraduationCap,
+        title: "BS Computer Science",
+        subtitle: "FAST-NUCES",
+        image: "/fast.svg",
     },
 ];
