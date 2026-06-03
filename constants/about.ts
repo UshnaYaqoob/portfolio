@@ -36,6 +36,6 @@ export const ABOUT_CTA = {
 };
 
 export const ABOUT_IMAGE = {
-    src: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=600",
+    src: "./UshnaYaqoob.svg",
     alt: "Developer portrait",
 };

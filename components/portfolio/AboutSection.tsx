@@ -19,7 +19,7 @@ export default function AboutSection() {
 
                     {/* Left: Image */}
                     <div className="flex justify-center lg:justify-start">
-                        <div className="relative w-full max-w-xs">
+                        <div className="relative w-full max-w-md">
 
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl blur-2xl opacity-40" />
 
