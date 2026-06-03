@@ -40,11 +40,11 @@ export default function Home() {
           <ServicesSection />
           <CredentialsSection />
           <ProjectsSection />
-          <AboutSection />
           <ProcessSection />
+            <AboutSection />
           <ContactSection />
         </main>
-        <Footer />
+        {/*<Footer />*/}
       </>
   );
 }
