@@ -13,12 +13,12 @@
 
 export const ABOUT_STATS = [
     {
-        value: "5",
+        value: "2",
         suffix: "+",
         label: "Years of experience",
     },
     {
-        value: "5",
+        value: "4",
         suffix: "+",
         label: "Projects Completed",
     },
