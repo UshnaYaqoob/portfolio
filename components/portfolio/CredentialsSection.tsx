@@ -1,12 +1,39 @@
-﻿import { CREDENTIALS } from "@/constants/credentials";
+"use client";
+
+import { useRef } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { CREDENTIALS } from "@/constants/credentials";
 
 export default function CredentialsSection() {
-    return (
-        <section className="py-10 px-6 bg-[#0a1628] border-b border-white/5">            <div className="max-w-5xl mx-auto">
+    const scrollRef = useRef<HTMLDivElement>(null);
 
-                <div className="flex flex-wrap items-center justify-center gap-0">
+    const scrollByAmount = (amount: number) => {
+        scrollRef.current?.scrollBy({ left: amount, behavior: "smooth" });
+    };
+
+    return (
+        <section className="py-10 px-6 bg-[#0a1628] border-b border-white/5">            <div className="max-w-5xl mx-auto relative">
+
+                {/* Left arrow */}
+                <button
+                    onClick={() => scrollByAmount(-240)}
+                    aria-label="Scroll left"
+                    className="
+            hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10
+            w-9 h-9 items-center justify-center rounded-full
+            bg-[#0d1f35] border border-white/10 text-slate-300
+            hover:text-white hover:border-blue-500/50 transition-colors
+          "
+                >
+                    <FaChevronLeft size={12} />
+                </button>
+
+                <div
+                    ref={scrollRef}
+                    className="flex flex-nowrap items-center justify-start lg:justify-center gap-0 overflow-x-auto themed-scrollbar pb-4"
+                >
                     {CREDENTIALS.map((cred, idx) => (
-                        <div key={idx} className="flex items-center">
+                        <div key={idx} className="flex items-center flex-shrink-0">
 
                             {/* Credential item */}
                             <div className="flex items-center gap-3 px-8 py-3">
@@ -36,6 +63,20 @@ export default function CredentialsSection() {
                         </div>
                     ))}
                 </div>
+
+                {/* Right arrow */}
+                <button
+                    onClick={() => scrollByAmount(240)}
+                    aria-label="Scroll right"
+                    className="
+            hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10
+            w-9 h-9 items-center justify-center rounded-full
+            bg-[#0d1f35] border border-white/10 text-slate-300
+            hover:text-white hover:border-blue-500/50 transition-colors
+          "
+                >
+                    <FaChevronRight size={12} />
+                </button>
 
             </div>
         </section>

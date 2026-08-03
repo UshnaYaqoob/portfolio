@@ -16,9 +16,14 @@ export const CREDENTIALS: Credential[] = [
         subtitle: "Fall 2023",
         image: "/bronze.svg",
     },
+    // {
+    //     title: "BS Computer Science",
+    //     subtitle: "FAST-NUCES",
+    //     image: "/fast.svg",
+    // },
     {
-        title: "BS Computer Science",
-        subtitle: "FAST-NUCES",
-        image: "/fast.svg",
+        title: "Team Appreciation Award",
+        subtitle: "Nexus Pro POC — recognized by CTO",
+        image: "/award.svg",
     },
 ];

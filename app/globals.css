@@ -70,4 +70,26 @@
     );
     background-size: 28px 28px;
   }
+
+  .themed-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-blue) var(--bg-secondary);
+  }
+
+  .themed-scrollbar::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .themed-scrollbar::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+
+  .themed-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--accent-blue);
+    border-radius: 9999px;
+  }
+
+  .themed-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-blue-light);
+  }
 }
