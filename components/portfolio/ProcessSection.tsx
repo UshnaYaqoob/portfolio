@@ -109,16 +109,19 @@ export default function ProcessSection() {
             // Start: right-center of from-card
             const x1 = fc.right;
             const y1 = fc.cy;
-            // End: center top/bottom of to-badge
-            const x2 = tb.cx;
-            const y2 = toIsTop ? tb.top : tb.bottom;
 
-            const cp1x = x1 + (x2 - x1) * 0.5;
-            const cp1y = y1;
-            const cp2x = x2;
-            const cp2y = fromIsTop
-                ? y2 - (y2 - y1) * 0.3
-                : y2 + (y1 - y2) * 0.3;
+// End: left-center of to-badge
+            const x2 = tb.left;
+            const y2 = tb.cy;
+
+// True S-curve — exits right horizontally, arrives left horizontally
+            const dx = x2 - x1;
+            const cp1x = x1 + dx * 0.5;
+            const cp1y = y1;   // stays level at start
+            const cp2x = x2 - dx * 0.5;
+            const cp2y = y2;   // arrives level at end
+
+// Remove: path.setAttribute('marker-end', ...)
 
             const mid = `proc-arr-${idx}`;
             const defs   = document.createElementNS(NS, "defs");
@@ -145,6 +148,8 @@ export default function ProcessSection() {
             path.setAttribute("stroke-width", "1.4");
             path.setAttribute("stroke-dasharray", "4 3.5");
             path.setAttribute("marker-end", `url(#${mid})`);
+            path.setAttribute('d', `M${x1},${y1} C${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`);
+
             svg.appendChild(path);
             pathsRef.current.push(path);
         });
