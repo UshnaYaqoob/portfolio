@@ -1,83 +1,39 @@
-"use client";
-
-import { useRef } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { CREDENTIALS } from "@/constants/credentials";
 
+const TRACK = [...CREDENTIALS, ...CREDENTIALS];
+
 export default function CredentialsSection() {
-    const scrollRef = useRef<HTMLDivElement>(null);
-
-    const scrollByAmount = (amount: number) => {
-        scrollRef.current?.scrollBy({ left: amount, behavior: "smooth" });
-    };
-
     return (
-        <section className="py-10 px-6 bg-[#0a1628] light:bg-slate-50 border-b border-white/5 light:border-slate-900/10">            <div className="max-w-5xl mx-auto relative">
+        <section id="achievements" className="py-10 bg-[#0a1628] light:bg-slate-50 border-b border-white/5 light:border-slate-900/10 overflow-hidden marquee-fade">
+            <div className="flex w-max animate-marquee">
+                {TRACK.map((cred, idx) => (
+                    <div key={idx} className="flex items-center flex-shrink-0">
 
-                {/* Left arrow */}
-                <button
-                    onClick={() => scrollByAmount(-240)}
-                    aria-label="Scroll left"
-                    className="
-            hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10
-            w-9 h-9 items-center justify-center rounded-full
-            bg-[#0d1f35] light:bg-white border border-white/10 light:border-slate-900/10 text-slate-300 light:text-slate-500
-            hover:text-white light:hover:text-slate-900 hover:border-blue-500/50 transition-colors
-          "
-                >
-                    <FaChevronLeft size={12} />
-                </button>
+                        {/* Credential item */}
+                        <div className="flex items-center gap-6 px-8 py-3">
+                            {/* Logo */}
+                            <img
+                                src={cred.image}
+                                alt={cred.title}
+                                className="w-10 h-10 object-contain rounded-md flex-shrink-0"
+                            />
 
-                <div
-                    ref={scrollRef}
-                    className="flex flex-nowrap items-center justify-start lg:justify-center gap-0 overflow-x-auto themed-scrollbar pb-4"
-                >
-                    {CREDENTIALS.map((cred, idx) => (
-                        <div key={idx} className="flex items-center flex-shrink-0">
-
-                            {/* Credential item */}
-                            <div className="flex items-center gap-3 px-8 py-3">
-                                {/* Logo */}
-                                <img
-                                    src={cred.image}
-                                    alt={cred.title}
-                                    className="w-10 h-10 object-contain rounded-md flex-shrink-0"
-                                />
-
-                                {/* Text */}
-                                <div className="flex flex-col">
-                                    <span className="text-white light:text-slate-900 text-sm font-bold leading-snug">
-                                        {cred.title}
-                                    </span>
-                                    <span className="text-slate-400 light:text-slate-500 text-xs mt-0.5">
-                                        {cred.subtitle}
-                                    </span>
-                                </div>
+                            {/* Text */}
+                            <div className="flex flex-col whitespace-nowrap">
+                                <span className="text-white light:text-slate-900 text-sm font-bold leading-snug">
+                                    {cred.title}
+                                </span>
+                                <span className="text-slate-400 light:text-slate-500 text-xs mt-0.5">
+                                    {cred.subtitle}
+                                </span>
                             </div>
-
-                            {/* Vertical divider — skip after last item */}
-                            {idx < CREDENTIALS.length - 1 && (
-                                <div className="w-px h-30 bg-white/10 light:bg-slate-900/10 flex-shrink-0" />
-                            )}
-
                         </div>
-                    ))}
-                </div>
 
-                {/* Right arrow */}
-                <button
-                    onClick={() => scrollByAmount(240)}
-                    aria-label="Scroll right"
-                    className="
-            hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10
-            w-9 h-9 items-center justify-center rounded-full
-            bg-[#0d1f35] light:bg-white border border-white/10 light:border-slate-900/10 text-slate-300 light:text-slate-500
-            hover:text-white light:hover:text-slate-900 hover:border-blue-500/50 transition-colors
-          "
-                >
-                    <FaChevronRight size={12} />
-                </button>
+                        {/* Vertical divider */}
+                        <div className="w-px h-12 bg-white/10 light:bg-slate-900/10 flex-shrink-0" />
 
+                    </div>
+                ))}
             </div>
         </section>
     );

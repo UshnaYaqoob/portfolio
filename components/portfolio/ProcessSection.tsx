@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import SectionHeader from "./SectionHeader";
+import ProcessStep from "./ProcessStep";
 
 const STEPS = [
     {
@@ -180,8 +181,21 @@ export default function ProcessSection() {
                         center
                     />
 
-                    {/* Stage: relative container for SVG overlay */}
-                    <div className="relative mt-16" ref={stageRef}>
+                    {/* Mobile/tablet: simple vertical timeline (zigzag layout doesn't fit narrow screens) */}
+                    <div className="lg:hidden mt-16 flex flex-col">
+                        {STEPS.map((step, idx) => (
+                            <ProcessStep
+                                key={step.id}
+                                number={idx + 1}
+                                title={step.title}
+                                description={step.description}
+                                isLast={idx === STEPS.length - 1}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Desktop: staggered zigzag layout with animated connector arrows */}
+                    <div className="hidden lg:block relative mt-16" ref={stageRef}>
                         <div className="grid grid-cols-5 gap-3">
                             {STEPS.map((step) => {
                                 const isTop = step.position === "top";
@@ -205,9 +219,9 @@ export default function ProcessSection() {
                                         {/* Card — top padding makes room for the overlapping badge */}
                                         <div
                                             id={`proc-card-${step.id}`}
-                                            className="bg-[#0a1628] light:bg-slate-50 border border-blue-900/50 light:border-blue-200/60 rounded-xl pt-8 pb-5 px-4 text-center w-full z-10"
+                                            className="bg-[#0a1628] light:bg-slate-50 border border-blue-900/50 light:border-blue-200/60 rounded-xl pt-8 pb-5 px-3 text-center w-full z-10"
                                         >
-                                            <h3 className="text-white light:text-slate-900 font-bold text-sm leading-snug mb-2">
+                                            <h3 className="text-white light:text-slate-900 font-bold text-base leading-snug mb-2">
                                                 {step.title}
                                             </h3>
                                             <p className="text-slate-400 light:text-slate-600 text-xs leading-relaxed">

@@ -31,7 +31,7 @@ export default function ProcessStep({ number, title, description, isLast = false
                 <div
                     className="
             w-10 h-10 rounded-full flex items-center justify-center shrink-0
-            border border-blue-500/40 bg-blue-600/10 text-blue-400
+            border border-blue-500/40 light:border-blue-300 bg-blue-600/10 light:bg-blue-50 text-blue-400 light:text-blue-600
             text-sm font-bold
           "
                 >
@@ -46,8 +46,8 @@ export default function ProcessStep({ number, title, description, isLast = false
 
             {/* ── Right column: content ── */}
             <div className={`flex flex-col gap-1 ${isLast ? "" : "pb-10"}`}>
-                <h3 className="text-slate-100 font-semibold text-lg">{title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
+                <h3 className="text-slate-100 light:text-slate-900 font-semibold text-lg">{title}</h3>
+                <p className="text-slate-400 light:text-slate-600 text-sm leading-relaxed">{description}</p>
             </div>
         </div>
     );

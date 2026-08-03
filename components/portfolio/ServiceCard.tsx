@@ -121,7 +121,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaCode, FaBolt, FaDatabase, FaMicrochip } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import type { ServiceCardProps } from "@/types/services";
@@ -148,14 +148,37 @@ export default function ServiceCard({
                                         techs,
                                     }: ServiceCardProps) {
     const [hovered, setHovered] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
     const Icon = ICON_MAP[iconKey];
     const image = SERVICE_IMAGES[title];
 
+    useEffect(() => {
+        const el = cardRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div
+            ref={cardRef}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="relative rounded-2xl overflow-hidden bg-[#0d1b2e] border border-white/10 hover:border-white/20 cursor-pointer h-[420px]"
+            className={`relative rounded-2xl overflow-hidden bg-[#0d1b2e] light:bg-slate-50 border border-white/10 light:border-slate-900/10 hover:border-white/20 light:hover:border-slate-900/20 cursor-pointer h-[420px] transition-all duration-700 ease-out ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
             {/* BG image — always rendered, fades in on hover */}
             {image && (
@@ -183,14 +206,24 @@ export default function ServiceCard({
             {/* Text content — fixed at top, always visible */}
             <div className="absolute top-0 left-0 right-0 z-20 p-7 flex flex-col gap-3">
                 {Icon && (
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-600/20 text-blue-400 mb-1">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-600/20 light:bg-blue-50 text-blue-400 light:text-blue-600 mb-1">
                         <Icon size={20} />
                     </div>
                 )}
 
-                <h3 className="text-xl font-bold text-white leading-snug">{title}</h3>
+                <h3
+                    className="text-xl font-bold text-white light:text-slate-900 leading-snug transition-colors duration-300"
+                    style={hovered ? { color: "#ffffff" } : undefined}
+                >
+                    {title}
+                </h3>
 
-                <p className="text-[#8a9bb5] text-sm leading-relaxed">{description}</p>
+                <p
+                    className="text-[#8a9bb5] light:text-slate-600 text-sm leading-relaxed transition-colors duration-300"
+                    style={hovered ? { color: "#c9d6e8" } : undefined}
+                >
+                    {description}
+                </p>
 
                 {/* Slides in on hover */}
                 <div
