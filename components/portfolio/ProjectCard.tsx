@@ -31,16 +31,16 @@ export default function ProjectCard({
                     </div>
                 )}
 
-                <h3 className="text-2xl font-bold text-white">{title}</h3>
-                <p className="text-slate-400">{description}</p>
+                <h3 className="text-2xl font-bold text-white light:text-slate-900">{title}</h3>
+                <p className="text-slate-400 light:text-slate-600">{description}</p>
 
                 <ul className="space-y-2">
                     {points.map((p) => (
-                        <li key={p} className="text-slate-400 text-sm">• {p}</li>
+                        <li key={p} className="text-slate-400 light:text-slate-600 text-sm">• {p}</li>
                     ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 light:border-slate-900/10">
                     {techs.map((t) => (
                         <TechBadge key={t} label={t} />
                     ))}

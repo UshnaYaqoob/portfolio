@@ -51,7 +51,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-24 px-6 bg-[#050b18] border-t border-white/5">
+        <section id="contact" className="py-24 px-6 bg-[#050b18] light:bg-white border-t border-white/5 light:border-slate-900/10">
             <div className="max-w-2xl mx-auto">
 
                 {/* Section header - centered */}
@@ -59,10 +59,10 @@ export default function ContactSection() {
           <span className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-3">
             Contact Me
           </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-3">
+                    <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-3 text-white light:text-slate-900">
                         Let's <span className="text-blue-400">Work</span> Together
                     </h2>
-                    <p className="text-slate-400 text-base">
+                    <p className="text-slate-400 light:text-slate-600 text-base">
                         Have a project in mind or need help building a reliable web system?
                     </p>
                 </div>
@@ -73,8 +73,8 @@ export default function ContactSection() {
                         <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
                             <FaEnvelope size={28} className="text-green-400" />
                         </div>
-                        <h3 className="text-slate-100 font-semibold text-xl">Message sent!</h3>
-                        <p className="text-slate-400 text-sm max-w-xs">
+                        <h3 className="text-slate-100 light:text-slate-900 font-semibold text-xl">Message sent!</h3>
+                        <p className="text-slate-400 light:text-slate-600 text-sm max-w-xs">
                             Thanks for reaching out. I'll get back to you within 24 hours.
                         </p>
                         <button
@@ -93,7 +93,7 @@ export default function ContactSection() {
                         {/* Name & Email row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="flex flex-col gap-2">
-                                <label className="text-slate-300 text-sm font-medium">Name *</label>
+                                <label className="text-slate-300 light:text-slate-700 text-sm font-medium">Name *</label>
                                 <input
                                     name="name"
                                     type="text"
@@ -103,15 +103,15 @@ export default function ContactSection() {
                                     placeholder="Your name here"
                                     className="
                     w-full px-4 py-3 rounded-lg text-sm
-                    bg-[#0a1628] border border-slate-700
-                    text-slate-200 placeholder-slate-600
+                    bg-[#0a1628] light:bg-slate-50 border border-slate-700 light:border-slate-300
+                    text-slate-200 light:text-slate-900 placeholder-slate-600 light:placeholder-slate-400
                     focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/30
                     transition-all duration-200
                   "
                                 />
                             </div>
                             <div className="flex flex-col gap-2">
-                                <label className="text-slate-300 text-sm font-medium">Email *</label>
+                                <label className="text-slate-300 light:text-slate-700 text-sm font-medium">Email *</label>
                                 <input
                                     name="email"
                                     type="email"
@@ -121,8 +121,8 @@ export default function ContactSection() {
                                     placeholder="Where can I reply"
                                     className="
                     w-full px-4 py-3 rounded-lg text-sm
-                    bg-[#0a1628] border border-slate-700
-                    text-slate-200 placeholder-slate-600
+                    bg-[#0a1628] light:bg-slate-50 border border-slate-700 light:border-slate-300
+                    text-slate-200 light:text-slate-900 placeholder-slate-600 light:placeholder-slate-400
                     focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/30
                     transition-all duration-200
                   "
@@ -132,7 +132,7 @@ export default function ContactSection() {
 
                         {/* Message */}
                         <div className="flex flex-col gap-2">
-                            <label className="text-slate-300 text-sm font-medium">What's in your mind? *</label>
+                            <label className="text-slate-300 light:text-slate-700 text-sm font-medium">What's in your mind? *</label>
                             <textarea
                                 name="message"
                                 rows={5}
@@ -142,8 +142,8 @@ export default function ContactSection() {
                                 placeholder="Tell me about your project..."
                                 className="
                   w-full px-4 py-3 rounded-lg text-sm resize-none
-                  bg-[#0a1628] border border-slate-700
-                  text-slate-200 placeholder-slate-600
+                  bg-[#0a1628] light:bg-slate-50 border border-slate-700 light:border-slate-300
+                  text-slate-200 light:text-slate-900 placeholder-slate-600 light:placeholder-slate-400
                   focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/30
                   transition-all duration-200
                 "
@@ -177,12 +177,12 @@ export default function ContactSection() {
                 )}
 
                 {/* Footer section */}
-                <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="mt-16 pt-8 border-t border-white/10 light:border-slate-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     {/* Social links */}
                     <div className="flex items-center gap-4">
                         <a
                             href="mailto:ushnayaqoob753@gmail.com"
-                            className="text-slate-500 hover:text-slate-300 transition-colors"
+                            className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
                             aria-label="Email"
                         >
                             <FaEnvelope size={18} />
@@ -191,7 +191,7 @@ export default function ContactSection() {
                             href="https://www.linkedin.com/in/ushnayaqoob/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-slate-500 hover:text-slate-300 transition-colors"
+                            className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
                             aria-label="LinkedIn"
                         >
                             <FaLinkedin size={18} />
@@ -200,7 +200,7 @@ export default function ContactSection() {
                             href="https://github.com/UshnaYaqoob"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-slate-500 hover:text-slate-300 transition-colors"
+                            className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
                             aria-label="GitHub"
                         >
                             <FaGithub size={18} />
@@ -208,7 +208,7 @@ export default function ContactSection() {
                     </div>
 
                     {/* Copyright */}
-                    <p className="text-slate-600 text-xs">© UshnaYaqoob</p>
+                    <p className="text-slate-600 light:text-slate-500 text-xs">© UshnaYaqoob</p>
                 </div>
             </div>
         </section>

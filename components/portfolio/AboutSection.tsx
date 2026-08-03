@@ -13,7 +13,7 @@ import { MdFlashOn } from "react-icons/md";import {
 
 export default function AboutSection() {
     return (
-        <section id="about" className="py-24 px-6 bg-[#050b18] border-t border-white/5">
+        <section id="about" className="py-24 px-6 bg-[#050b18] light:bg-white border-t border-white/5 light:border-slate-900/10">
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -42,14 +42,14 @@ export default function AboutSection() {
             </span>
 
                         {/* Heading */}
-                        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-white light:text-slate-900">
                             The <span className="text-blue-400">{ABOUT_CONTENT.heading.highlight}</span> Behind
                             <br />
                             {ABOUT_CONTENT.heading.line2}
                         </h2>
 
                         {/* Bio */}
-                        <div className="flex flex-col gap-3 text-slate-400 text-sm leading-relaxed">
+                        <div className="flex flex-col gap-3 text-slate-400 light:text-slate-600 text-sm leading-relaxed">
                             {ABOUT_CONTENT.bio.map((text, i) => (
                                 <p key={i}>{text}</p>
                             ))}
@@ -60,14 +60,14 @@ export default function AboutSection() {
                             {ABOUT_STATS.map((stat, i) => (
                                 <div key={i}>
                                     <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-slate-100">
+                    <span className="text-3xl font-bold text-slate-100 light:text-slate-900">
                       {stat.value}
                     </span>
-                                        <span className="text-slate-400 text-sm">
+                                        <span className="text-slate-400 light:text-slate-600 text-sm">
                       {stat.suffix}
                     </span>
                                     </div>
-                                    <span className="text-slate-400 text-xs mt-1 block">
+                                    <span className="text-slate-400 light:text-slate-600 text-xs mt-1 block">
                     {stat.label}
                   </span>
                                 </div>
@@ -86,7 +86,7 @@ export default function AboutSection() {
 
                             <a
                                 href={ABOUT_CTA.secondary.href}
-                                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-slate-300 rounded-full border border-slate-700 hover:border-slate-500 hover:text-white transition-all duration-200"
+                                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-slate-300 light:text-slate-700 rounded-full border border-slate-700 light:border-slate-300 hover:border-slate-500 light:hover:border-slate-500 hover:text-white light:hover:text-slate-900 transition-all duration-200"
                             >
                                 {ABOUT_CTA.secondary.label}
                             </a>

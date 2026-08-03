@@ -12,7 +12,7 @@ export default function CredentialsSection() {
     };
 
     return (
-        <section className="py-10 px-6 bg-[#0a1628] border-b border-white/5">            <div className="max-w-5xl mx-auto relative">
+        <section className="py-10 px-6 bg-[#0a1628] light:bg-slate-50 border-b border-white/5 light:border-slate-900/10">            <div className="max-w-5xl mx-auto relative">
 
                 {/* Left arrow */}
                 <button
@@ -21,8 +21,8 @@ export default function CredentialsSection() {
                     className="
             hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10
             w-9 h-9 items-center justify-center rounded-full
-            bg-[#0d1f35] border border-white/10 text-slate-300
-            hover:text-white hover:border-blue-500/50 transition-colors
+            bg-[#0d1f35] light:bg-white border border-white/10 light:border-slate-900/10 text-slate-300 light:text-slate-500
+            hover:text-white light:hover:text-slate-900 hover:border-blue-500/50 transition-colors
           "
                 >
                     <FaChevronLeft size={12} />
@@ -46,10 +46,10 @@ export default function CredentialsSection() {
 
                                 {/* Text */}
                                 <div className="flex flex-col">
-                                    <span className="text-white text-sm font-bold leading-snug">
+                                    <span className="text-white light:text-slate-900 text-sm font-bold leading-snug">
                                         {cred.title}
                                     </span>
-                                    <span className="text-slate-400 text-xs mt-0.5">
+                                    <span className="text-slate-400 light:text-slate-500 text-xs mt-0.5">
                                         {cred.subtitle}
                                     </span>
                                 </div>
@@ -57,7 +57,7 @@ export default function CredentialsSection() {
 
                             {/* Vertical divider — skip after last item */}
                             {idx < CREDENTIALS.length - 1 && (
-                                <div className="w-px h-30 bg-white/10 flex-shrink-0" />
+                                <div className="w-px h-30 bg-white/10 light:bg-slate-900/10 flex-shrink-0" />
                             )}
 
                         </div>
@@ -71,8 +71,8 @@ export default function CredentialsSection() {
                     className="
             hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10
             w-9 h-9 items-center justify-center rounded-full
-            bg-[#0d1f35] border border-white/10 text-slate-300
-            hover:text-white hover:border-blue-500/50 transition-colors
+            bg-[#0d1f35] light:bg-white border border-white/10 light:border-slate-900/10 text-slate-300 light:text-slate-500
+            hover:text-white light:hover:text-slate-900 hover:border-blue-500/50 transition-colors
           "
                 >
                     <FaChevronRight size={12} />

@@ -17,13 +17,13 @@ export default function SectionHeader({
       </span>
 
             {/* Title */}
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-slate-100">
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-slate-100 light:text-slate-900">
                 {title}
             </h2>
 
             {/* Subtitle */}
             {subtitle && (
-                <p className="text-slate-400 text-base leading-relaxed max-w-xl">
+                <p className="text-slate-400 light:text-slate-600 text-base leading-relaxed max-w-xl">
                     {subtitle}
                 </p>
             )}

@@ -106,23 +106,17 @@ export default function ProcessSection() {
             const fromIsTop = fromCol?.dataset.pos === "top";
             const toIsTop   = toCol?.dataset.pos   === "top";
 
-            // Start: right-center of from-card
             const x1 = fc.right;
             const y1 = fc.cy;
 
-// End: left-center of to-badge
             const x2 = tb.left;
             const y2 = tb.cy;
 
-// True S-curve — exits right horizontally, arrives left horizontally
             const dx = x2 - x1;
             const cp1x = x1 + dx * 0.5;
-            const cp1y = y1;   // stays level at start
+            const cp1y = y1;  
             const cp2x = x2 - dx * 0.5;
-            const cp2y = y2;   // arrives level at end
-
-// Remove: path.setAttribute('marker-end', ...)
-
+            const cp2y = y2;  
             const mid = `proc-arr-${idx}`;
             const defs   = document.createElementNS(NS, "defs");
             const marker = document.createElementNS(NS, "marker");
@@ -176,7 +170,7 @@ export default function ProcessSection() {
     }, [buildArrows]);
 
     return (
-        <section className="py-24 px-6 bg-[#050b18]">
+        <section className="py-24 px-6 bg-[#050b18] light:bg-white">
             <div className="max-w-6xl mx-auto">
                 <div className="border border-dashed border-blue-500/30 rounded-2xl p-8 md:p-12">
                     <SectionHeader
@@ -203,7 +197,7 @@ export default function ProcessSection() {
                                         {/* Icon badge — absolute, sitting on top edge of card */}
                                         <div
                                             id={`proc-badge-${step.id}`}
-                                            className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl bg-[#101e33] border border-blue-800/40 flex items-center justify-center text-blue-400 z-20"
+                                            className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl bg-[#101e33] light:bg-blue-50 border border-blue-800/40 light:border-blue-200 flex items-center justify-center text-blue-400 light:text-blue-600 z-20"
                                         >
                                             {step.icon}
                                         </div>
@@ -211,12 +205,12 @@ export default function ProcessSection() {
                                         {/* Card — top padding makes room for the overlapping badge */}
                                         <div
                                             id={`proc-card-${step.id}`}
-                                            className="bg-[#0a1628] border border-blue-900/50 rounded-xl pt-8 pb-5 px-4 text-center w-full z-10"
+                                            className="bg-[#0a1628] light:bg-slate-50 border border-blue-900/50 light:border-blue-200/60 rounded-xl pt-8 pb-5 px-4 text-center w-full z-10"
                                         >
-                                            <h3 className="text-white font-bold text-sm leading-snug mb-2">
+                                            <h3 className="text-white light:text-slate-900 font-bold text-sm leading-snug mb-2">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-slate-400 text-xs leading-relaxed">
+                                            <p className="text-slate-400 light:text-slate-600 text-xs leading-relaxed">
                                                 {step.description}
                                             </p>
                                         </div>

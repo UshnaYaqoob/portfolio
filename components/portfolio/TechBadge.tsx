@@ -17,7 +17,7 @@ export default function TechBadge({ label }: TechBadgeProps) {
         <span
             className="
         inline-block px-2 py-0.5 text-xs font-medium rounded
-        bg-blue-900/40 text-blue-300 border border-blue-800/50
+        bg-blue-900/40 light:bg-blue-50 text-blue-300 light:text-blue-700 border border-blue-800/50 light:border-blue-200
         select-none
       "
         >

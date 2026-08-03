@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NAVBAR_CONFIG } from "@/constants/navbar";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -29,7 +30,7 @@ export default function Navbar() {
                 transition-all duration-300
                 ${
                 scrolled
-                    ? "bg-[#0a0e27]/90 backdrop-blur-md border-b border-white/5 shadow-lg"
+                    ? "bg-[#0a0e27]/90 light:bg-white/90 backdrop-blur-md border-b border-white/5 light:border-slate-900/10 shadow-lg"
                     : "bg-transparent"
             }
             `}
@@ -50,51 +51,57 @@ export default function Navbar() {
                         width={113}
                         height={53}
                         priority
-                        className="h-8 w-auto"
+                        className="h-8 w-auto light:brightness-0"
                     />
                 </a>
 
                 {/* Desktop Navigation */}
-                <ul className="hidden md:flex items-center gap-8">
-                    {NAVBAR_CONFIG.links.map((link) => (
-                        <li key={link.href}>
-                            <a
-                                href={link.href}
-                                className="
-                                    relative text-sm font-medium text-slate-400
-                                    hover:text-white transition-colors group
-                                "
-                            >
-                                {link.label}
-
-                                <span
+                <div className="hidden md:flex items-center gap-8">
+                    <ul className="flex items-center gap-8">
+                        {NAVBAR_CONFIG.links.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
                                     className="
-                                        absolute left-0 -bottom-1 h-px w-0
-                                        bg-blue-400 transition-all duration-300
-                                        group-hover:w-full
+                                        relative text-sm font-medium text-slate-400 light:text-slate-600
+                                        hover:text-white light:hover:text-slate-900 transition-colors group
                                     "
-                                />
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                                >
+                                    {link.label}
 
-                {/* Mobile Menu Button */}
-                <button
-                    type="button"
-                    className="md:hidden text-slate-400 hover:text-white transition-colors"
-                    aria-label={menuOpen ? "Close menu" : "Open menu"}
-                    onClick={() => setMenuOpen((prev) => !prev)}
-                >
-                    {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-                </button>
+                                    <span
+                                        className="
+                                            absolute left-0 -bottom-1 h-px w-0
+                                            bg-blue-400 transition-all duration-300
+                                            group-hover:w-full
+                                        "
+                                    />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <ThemeToggle />
+                </div>
+
+                {/* Mobile: theme toggle + menu button */}
+                <div className="flex md:hidden items-center gap-2">
+                    <ThemeToggle />
+                    <button
+                        type="button"
+                        className="text-slate-400 hover:text-white light:text-slate-600 light:hover:text-slate-900 transition-colors"
+                        aria-label={menuOpen ? "Close menu" : "Open menu"}
+                        onClick={() => setMenuOpen((prev) => !prev)}
+                    >
+                        {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+                    </button>
+                </div>
             </nav>
 
             {/* Mobile Navigation */}
             <div
                 className={`
-                    md:hidden bg-[#0a0e27]/95 backdrop-blur-md
-                    border-t border-white/5 px-6 py-4
+                    md:hidden bg-[#0a0e27]/95 light:bg-white/95 backdrop-blur-md
+                    border-t border-white/5 light:border-slate-900/10 px-6 py-4
                     transition-all duration-300 overflow-hidden
                     ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
                 `}
@@ -104,7 +111,7 @@ export default function Navbar() {
                         <li key={link.href}>
                             <a
                                 href={link.href}
-                                className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                                className="text-sm font-medium text-slate-300 light:text-slate-700 hover:text-white light:hover:text-slate-900 transition-colors"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {link.label}

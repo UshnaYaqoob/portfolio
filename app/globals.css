@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enables the `light:` variant — applies when an ancestor has class="light" */
+@custom-variant light (&:where(.light, .light *));
+
 /* ─────────────────────────────────────────────
    Custom design tokens for the dark portfolio
    ───────────────────────────────────────────── */
@@ -26,12 +29,36 @@
   --border-accent: rgba(37, 99, 235, 0.4);
 }
 
+:root.light {
+  /* Light background palette */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f6fb;
+  --bg-card: #ffffff;
+  --bg-card-hover: #eef2f9;
+
+  /* Blue accent palette stays consistent for brand continuity */
+  --accent-blue: #2563eb;
+  --accent-blue-light: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+
+  /* Text palette */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  /* Border */
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-accent: rgba(37, 99, 235, 0.3);
+}
+
 @layer base {
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   html {

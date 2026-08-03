@@ -6,7 +6,7 @@ export default function ServicesSection() {
     return (
         <section
             id="services"
-            className="py-24 px-6 bg-[#050b18] border-t border-white/5"
+            className="py-24 px-6 bg-[#050b18] light:bg-white border-t border-white/5 light:border-slate-900/10"
         >
             <div className="max-w-6xl mx-auto">
 

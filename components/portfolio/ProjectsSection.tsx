@@ -4,7 +4,7 @@ import { PROJECTS } from "@/constants/projects";
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="py-24 px-6 bg-[#050b18]">
+        <section id="projects" className="py-24 px-6 bg-[#050b18] light:bg-white">
             <div className="max-w-6xl mx-auto">
 
                 {/* Header */}

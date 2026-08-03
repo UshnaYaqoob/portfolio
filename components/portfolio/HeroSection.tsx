@@ -124,7 +124,7 @@ export default function HeroSection() {
                 px-6
                 py-20
                 overflow-hidden
-                bg-[#050d1a]
+                bg-[#050d1a] light:bg-white
             "
         >
             {/* Animated background */}
@@ -134,7 +134,7 @@ export default function HeroSection() {
             />
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#050d1a]/20 via-transparent to-[#050d1a]/50 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#050d1a]/20 via-transparent to-[#050d1a]/50 light:from-white/20 light:via-transparent light:to-white/50 pointer-events-none" />
 
             {/* Content */}
             <div className="relative z-10 max-w-5xl w-full text-center">
@@ -146,7 +146,7 @@ export default function HeroSection() {
                         sm:text-6xl
                         md:text-[64px]
                         leading-[1.15]
-                        text-white
+                        text-white light:text-slate-900
                         mb-6
                     "
                     style={{ letterSpacing: "-0.5px" }}
@@ -169,7 +169,7 @@ export default function HeroSection() {
                     {SKILL_TAGS.map((tag, index) => (
                         <span
                             key={tag}
-                            className="inline-flex items-center gap-2 text-sm font-medium text-slate-200"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-slate-200 light:text-slate-700"
                         >
                             <span
                                 className="w-2.5 h-2.5 rounded-full flex-shrink-0"
@@ -183,7 +183,7 @@ export default function HeroSection() {
                     ))}
                 </div>
                 {/* Bio */}
-                <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-4xl mx-auto mb-10">
+                <p className="text-slate-400 light:text-slate-600 text-base md:text-lg leading-relaxed max-w-4xl mx-auto mb-10">
                     {HERO_CONTENT.bio}
                 </p>
 
@@ -226,14 +226,12 @@ export default function HeroSection() {
                             rounded-full
                             text-sm
                             font-semibold
-                            text-slate-100
+                            text-slate-100 light:text-slate-800
+                            border-[1.5px] border-white/35 light:border-slate-900/25
                             transition-all
                             duration-300
-                            hover:bg-white/5
+                            hover:bg-white/5 light:hover:bg-slate-900/5
                         "
-                        style={{
-                            border: "1.5px solid rgba(255,255,255,0.35)",
-                        }}
                     >
                         {HERO_CTA.secondary.label}
                     </a>
