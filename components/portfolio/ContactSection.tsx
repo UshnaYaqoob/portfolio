@@ -181,25 +181,29 @@ export default function ContactSection() {
                     {/* Social links */}
                     <div className="flex items-center gap-4">
                         <a
-                            href="#"
+                            href="mailto:ushnayaqoob753@gmail.com"
                             className="text-slate-500 hover:text-slate-300 transition-colors"
                             aria-label="Email"
                         >
                             <FaEnvelope size={18} />
                         </a>
                         <a
-                            href="#"
+                            href="https://www.linkedin.com/in/ushnayaqoob/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-slate-500 hover:text-slate-300 transition-colors"
                             aria-label="LinkedIn"
                         >
-                            <FaGithub size={18} />
+                            <FaLinkedin size={18} />
                         </a>
                         <a
-                            href="#"
+                            href="https://github.com/UshnaYaqoob"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-slate-500 hover:text-slate-300 transition-colors"
                             aria-label="GitHub"
                         >
-                            <FaLinkedin size={18} />
+                            <FaGithub size={18} />
                         </a>
                     </div>
 
