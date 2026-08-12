@@ -65,7 +65,7 @@ const STEPS = [
 
 const NS = "http://www.w3.org/2000/svg";
 
-function getRelRect(el, stage) {
+function getRelRect(el: Element, stage: Element) {
     const r = el.getBoundingClientRect();
     const s = stage.getBoundingClientRect();
     return {
@@ -79,11 +79,11 @@ function getRelRect(el, stage) {
 }
 
 export default function ProcessSection() {
-    const stageRef = useRef(null);
-    const svgRef   = useRef(null);
-    const pathsRef = useRef([]);
+    const stageRef = useRef<HTMLDivElement>(null);
+    const svgRef   = useRef<SVGSVGElement>(null);
+    const pathsRef = useRef<SVGPathElement[]>([]);
     const offRef   = useRef(0);
-    const rafRef   = useRef(null);
+    const rafRef   = useRef<number | null>(null);
 
     const buildArrows = useCallback(() => {
         const stage = stageRef.current;
@@ -98,8 +98,8 @@ export default function ProcessSection() {
         pairs.forEach(([fi, ti], idx) => {
             const fromCard = stage.querySelector(`#proc-card-${fi}`);
             const toBadge  = stage.querySelector(`#proc-badge-${ti}`);
-            const fromCol  = stage.querySelector(`#proc-col-${fi}`);
-            const toCol    = stage.querySelector(`#proc-col-${ti}`);
+            const fromCol  = stage.querySelector<HTMLElement>(`#proc-col-${fi}`);
+            const toCol    = stage.querySelector<HTMLElement>(`#proc-col-${ti}`);
             if (!fromCard || !toBadge) return;
 
             const fc = getRelRect(fromCard, stage);
@@ -157,7 +157,7 @@ export default function ProcessSection() {
         const tick = () => {
             offRef.current -= 0.25;
             pathsRef.current.forEach((p) =>
-                p.setAttribute("stroke-dashoffset", offRef.current)
+                p.setAttribute("stroke-dashoffset", String(offRef.current))
             );
             rafRef.current = requestAnimationFrame(tick);
         };
