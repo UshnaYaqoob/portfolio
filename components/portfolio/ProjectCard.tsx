@@ -1,4 +1,5 @@
-﻿import TechBadge from "./TechBadge";
+import TechBadge from "./TechBadge";
+import ProjectImageTilt from "./ProjectImageTilt";
 import type { Project } from "@/types/projects";
 
 export default function ProjectCard({
@@ -17,7 +18,7 @@ export default function ProjectCard({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
 
             <div className={isLeft ? "md:order-1" : "md:order-2"}>
-                <img src={image} className="rounded-xl w-full object-cover" />
+                <ProjectImageTilt image={image} alt={title} />
             </div>
 
             {/* Content */}

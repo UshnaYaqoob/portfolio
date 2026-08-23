@@ -1,5 +1,6 @@
-﻿import SectionHeader from "./SectionHeader";
+import SectionHeader from "./SectionHeader";
 import ProjectCard from "./ProjectCard";
+import Reveal from "./Reveal";
 import { PROJECTS } from "@/constants/projects";
 
 export default function ProjectsSection() {
@@ -23,7 +24,9 @@ export default function ProjectsSection() {
                 {/* Stack */}
                 <div className="space-y-12 md:space-y-16">
                     {PROJECTS.map((project) => (
-                        <ProjectCard key={project.title} {...project} />
+                        <Reveal key={project.title}>
+                            <ProjectCard {...project} />
+                        </Reveal>
                     ))}
                 </div>
 

@@ -9,6 +9,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import CursorGlow from "@/components/portfolio/CursorGlow";
+import CustomCursor from "@/components/portfolio/CustomCursor";
+import GrainOverlay from "@/components/portfolio/GrainOverlay";
 
 // Subset latin to keep the font bundle small
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -40,6 +43,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <Script id="theme-init" strategy="beforeInteractive">
         {THEME_INIT_SCRIPT}
       </Script>
+      <GrainOverlay />
+      <CursorGlow />
+      <CustomCursor />
       {children}
       </body>
       </html>

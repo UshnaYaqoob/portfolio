@@ -186,3 +186,9 @@
     animation: bot-tooltip-in 0.3s ease-out both;
   }
 }
+
+/* ── Custom cursor: only hides the native cursor once JS confirms a fine pointer ── */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}

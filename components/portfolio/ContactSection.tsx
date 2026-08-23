@@ -18,6 +18,8 @@ import {
     FaPaperPlane,
 } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
+import Confetti from "./Confetti";
 
 export default function ContactSection() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -52,7 +54,7 @@ export default function ContactSection() {
 
     return (
         <section id="contact" className="py-24 px-6 bg-[#050b18] light:bg-white border-t border-white/5 light:border-slate-900/10">
-            <div className="max-w-2xl mx-auto">
+            <Reveal className="max-w-2xl mx-auto">
 
                 {/* Section header - centered */}
                 <div className="text-center mb-12">
@@ -67,6 +69,7 @@ export default function ContactSection() {
                     </p>
                 </div>
 
+                {submitted && <Confetti />}
                 {submitted ? (
                     /* Success state */
                     <div className="flex flex-col items-center justify-center text-center gap-4 py-12">
@@ -176,41 +179,42 @@ export default function ContactSection() {
                     </form>
                 )}
 
-                {/* Footer section */}
-                <div className="mt-16 pt-8 border-t border-white/10 light:border-slate-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    {/* Social links */}
-                    <div className="flex items-center gap-4">
-                        <a
-                            href="mailto:ushnayaqoob753@gmail.com"
-                            className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
-                            aria-label="Email"
-                        >
-                            <FaEnvelope size={18} />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/ushnayaqoob/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
-                            aria-label="LinkedIn"
-                        >
-                            <FaLinkedin size={18} />
-                        </a>
-                        <a
-                            href="https://github.com/UshnaYaqoob"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
-                            aria-label="GitHub"
-                        >
-                            <FaGithub size={18} />
-                        </a>
-                    </div>
+            </Reveal>
 
-                    {/* Copyright */}
-                    <p className="text-slate-600 light:text-slate-500 text-xs">© UshnaYaqoob</p>
+            {/* Footer section - full width, matches the page's standard content width */}
+            <Reveal className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 light:border-slate-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                {/* Social links */}
+                <div className="flex items-center gap-4">
+                    <a
+                        href="mailto:ushnayaqoob753@gmail.com"
+                        className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
+                        aria-label="Email"
+                    >
+                        <FaEnvelope size={18} />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/ushnayaqoob/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
+                        aria-label="LinkedIn"
+                    >
+                        <FaLinkedin size={18} />
+                    </a>
+                    <a
+                        href="https://github.com/UshnaYaqoob"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-500 light:text-slate-500 hover:text-slate-300 light:hover:text-slate-900 transition-colors"
+                        aria-label="GitHub"
+                    >
+                        <FaGithub size={18} />
+                    </a>
                 </div>
-            </div>
+
+                {/* Copyright */}
+                <p className="text-slate-600 light:text-slate-500 text-xs">© UshnaYaqoob</p>
+            </Reveal>
         </section>
     );
 }

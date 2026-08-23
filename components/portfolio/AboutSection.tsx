@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AboutSection — "The Mind Behind the Code"
  *
  * Left: rounded image with blue gradient background
@@ -10,6 +10,8 @@ import { MdFlashOn } from "react-icons/md";import {
     ABOUT_CTA,
     ABOUT_IMAGE,
 } from "@/constants/about";
+import Reveal from "./Reveal";
+import AnimatedCounter from "./AnimatedCounter";
 
 export default function AboutSection() {
     return (
@@ -18,7 +20,7 @@ export default function AboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                     {/* Left: Image */}
-                    <div className="flex justify-center lg:justify-start">
+                    <Reveal className="flex justify-center lg:justify-start">
                         <div className="relative w-full max-w-md">
 
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-500 rounded-3xl blur-2xl opacity-40" />
@@ -31,10 +33,10 @@ export default function AboutSection() {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
 
                     {/* Right: Content */}
-                    <div className="flex flex-col gap-6">
+                    <Reveal delay={120} className="flex flex-col gap-6">
 
                         {/* Overline */}
                         <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
@@ -61,7 +63,7 @@ export default function AboutSection() {
                                 <div key={i}>
                                     <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-bold text-slate-100 light:text-slate-900">
-                      {stat.value}
+                      <AnimatedCounter value={stat.value} />
                     </span>
                                         <span className="text-slate-400 light:text-slate-600 text-sm">
                       {stat.suffix}
@@ -92,7 +94,7 @@ export default function AboutSection() {
                             </a>
                         </div>
 
-                    </div>
+                    </Reveal>
                 </div>
             </div>
         </section>

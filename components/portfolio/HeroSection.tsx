@@ -1,15 +1,23 @@
-﻿"use client";
+"use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SKILL_TAGS, HERO_CONTENT, HERO_CTA } from "@/constants/hero";
+import TypewriterText from "./TypewriterText";
 
 const DOT_COLORS = ["#3b82f6", "#06b6d4", "#a855f7"];
+const TYPE_SPEED = 35;
+const TYPE_START_DELAY = 300;
 
 export default function HeroSection() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const wrapRef = useRef<HTMLElement>(null);
+    const [typingDone, setTypingDone] = useState(false);
 
     const PrimaryIcon = HERO_CTA.primary.icon;
+
+    const line1Delay = TYPE_START_DELAY;
+    const highlightDelay = line1Delay + HERO_CONTENT.headline.line1.length * TYPE_SPEED;
+    const line2Delay = highlightDelay + HERO_CONTENT.headline.highlight.length * TYPE_SPEED;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -162,9 +170,10 @@ export default function HeroSection() {
                 {/* Heading */}
                 <h1
                     className="
-                        text-5xl
-                        sm:text-6xl
-                        md:text-[64px]
+                        text-4xl
+                        sm:text-5xl
+                        md:text-6xl
+                        lg:text-[64px]
                         leading-[1.15]
                         text-white light:text-slate-900
                         mb-6
@@ -172,16 +181,27 @@ export default function HeroSection() {
                     style={{ letterSpacing: "-0.5px" }}
                 >
                     <span className="font-extrabold">
-                        {HERO_CONTENT.headline.line1}
+                        <TypewriterText text={HERO_CONTENT.headline.line1} startDelay={line1Delay} speed={TYPE_SPEED} />
                     </span>{" "}
                     <span className="font-normal text-blue-400">
-                        {HERO_CONTENT.headline.highlight}
+                        <TypewriterText text={HERO_CONTENT.headline.highlight} startDelay={highlightDelay} speed={TYPE_SPEED} />
                     </span>
 
                     <br />
 
                     <span className="font-normal">
-                        {HERO_CONTENT.headline.line2}
+                        <TypewriterText
+                            text={HERO_CONTENT.headline.line2}
+                            startDelay={line2Delay}
+                            speed={TYPE_SPEED}
+                            onDone={() => setTypingDone(true)}
+                        />
+                        <span
+                            className={
+                                "inline-block w-[3px] h-[0.9em] -mb-[0.1em] ml-1 bg-blue-400 " +
+                                (typingDone ? "opacity-0 transition-opacity duration-500" : "animate-pulse")
+                            }
+                        />
                     </span>
                 </h1>
                 {/* Skill Tags */}
@@ -209,52 +229,49 @@ export default function HeroSection() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap items-center justify-center gap-4">
+                        <a
+                            href={HERO_CTA.primary.href}
+                            className="
+                                inline-flex
+                                items-center
+                                gap-2
+                                px-7
+                                py-3.5
+                                rounded-full
+                                text-sm
+                                font-semibold
+                                text-white
+                                bg-blue-600
+                                hover:bg-blue-500
+                                transition-all
+                                duration-300
+                                hover:scale-105
+                            "
+                        >
+                            {HERO_CTA.primary.label}
+                            {PrimaryIcon && <PrimaryIcon size={16} />}
+                        </a>
 
-                    <a
-                        href={HERO_CTA.primary.href}
-                        className="
-                            inline-flex
-                            items-center
-                            gap-2
-                            px-7
-                            py-3.5
-                            rounded-full
-                            text-sm
-                            font-semibold
-                            text-white
-                            transition-all
-                            duration-300
-                            hover:scale-105
-                        "
-                        style={{
-                            background:
-                                "linear-gradient(135deg, #7c3aed, #6366f1)",
-                        }}
-                    >
-                        {HERO_CTA.primary.label}
-                        {PrimaryIcon && <PrimaryIcon size={16} />}
-                    </a>
-
-                    <a
-                        href={HERO_CTA.secondary.href}
-                        className="
-                            inline-flex
-                            items-center
-                            gap-2
-                            px-7
-                            py-3.5
-                            rounded-full
-                            text-sm
-                            font-semibold
-                            text-slate-100 light:text-slate-800
-                            border-[1.5px] border-white/35 light:border-slate-900/25
-                            transition-all
-                            duration-300
-                            hover:bg-white/5 light:hover:bg-slate-900/5
-                        "
-                    >
-                        {HERO_CTA.secondary.label}
-                    </a>
+                        <a
+                            href={HERO_CTA.secondary.href}
+                            className="
+                                inline-flex
+                                items-center
+                                gap-2
+                                px-7
+                                py-3.5
+                                rounded-full
+                                text-sm
+                                font-semibold
+                                text-slate-100 light:text-slate-800
+                                border-[1.5px] border-white/35 light:border-slate-900/25
+                                transition-all
+                                duration-300
+                                hover:bg-white/5 light:hover:bg-slate-900/5
+                            "
+                        >
+                            {HERO_CTA.secondary.label}
+                        </a>
 
                 </div>
             </div>

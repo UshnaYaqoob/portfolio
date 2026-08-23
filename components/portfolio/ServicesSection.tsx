@@ -1,5 +1,6 @@
-﻿import SectionHeader from "./SectionHeader";
+import SectionHeader from "./SectionHeader";
 import ServiceCard from "./ServiceCard";
+import Reveal from "./Reveal";
 import { SERVICES } from "@/constants/services";
 
 export default function ServicesSection() {
@@ -21,8 +22,10 @@ export default function ServicesSection() {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {SERVICES.map((service) => (
-                        <ServiceCard key={service.title} {...service} />
+                    {SERVICES.map((service, i) => (
+                        <Reveal key={service.title} delay={i * 90}>
+                            <ServiceCard {...service} />
+                        </Reveal>
                     ))}
                 </div>
 

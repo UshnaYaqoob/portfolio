@@ -27,10 +27,15 @@ export default function AIBot() {
 
     useEffect(() => {
         const showTimer = setTimeout(() => setShowTooltip(true), 2500);
-        const hideTimer = setTimeout(() => setShowTooltip(false), 9000);
+        const hideTimer = setTimeout(() => setShowTooltip(false), 7000);
+
+        const dismissOnScroll = () => setShowTooltip(false);
+        window.addEventListener("scroll", dismissOnScroll, { passive: true });
+
         return () => {
             clearTimeout(showTimer);
             clearTimeout(hideTimer);
+            window.removeEventListener("scroll", dismissOnScroll);
         };
     }, []);
 
