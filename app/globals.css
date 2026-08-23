@@ -120,3 +120,69 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
 }
+/* ── AI Assistant widget animations ── */
+@layer utilities {
+  @keyframes bot-fab-in {
+    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+    60% { transform: scale(1.12) rotate(4deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .animate-bot-fab-in {
+    animation: bot-fab-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  @keyframes bot-ring-pulse {
+    0% { transform: scale(1); opacity: 0.55; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+
+  .animate-bot-ring {
+    animation: bot-ring-pulse 2.2s ease-out infinite;
+  }
+
+  @keyframes bot-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .animate-bot-float {
+    animation: bot-float 3s ease-in-out infinite;
+  }
+
+  @keyframes bot-panel-in {
+    0% { transform: translateY(24px) scale(0.94); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  .animate-bot-panel-in {
+    animation: bot-panel-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes bot-msg-in {
+    0% { transform: translateY(6px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-bot-msg-in {
+    animation: bot-msg-in 0.25s ease-out both;
+  }
+
+  @keyframes bot-dot-bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .animate-bot-dot {
+    animation: bot-dot-bounce 1.1s ease-in-out infinite;
+  }
+
+  @keyframes bot-tooltip-in {
+    0% { transform: translateY(6px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  .animate-bot-tooltip {
+    animation: bot-tooltip-in 0.3s ease-out both;
+  }
+}
