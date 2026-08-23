@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         We still apply the Inter variable here so Tailwind's font-sans
         picks it up automatically.
       */}
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
       <Script id="theme-init" strategy="beforeInteractive">
         {THEME_INIT_SCRIPT}
       </Script>

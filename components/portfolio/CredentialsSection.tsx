@@ -1,6 +1,6 @@
 import { CREDENTIALS } from "@/constants/credentials";
 
-const TRACK = [...CREDENTIALS, ...CREDENTIALS];
+const TRACK = [...CREDENTIALS, ...CREDENTIALS, ...CREDENTIALS, ...CREDENTIALS, ...CREDENTIALS, ...CREDENTIALS];
 
 export default function CredentialsSection() {
     return (
