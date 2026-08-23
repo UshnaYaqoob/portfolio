@@ -14,7 +14,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "DevFolio — Full-Stack Developer",
+  title: "Ushna Yaqoob",
   description:
       "Portfolio of a full-stack developer specialising in Next.js, React, Node.js, and scalable web applications.",
 };

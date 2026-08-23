@@ -136,6 +136,26 @@ export default function HeroSection() {
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#050d1a]/20 via-transparent to-[#050d1a]/50 light:from-white/20 light:via-transparent light:to-white/50 pointer-events-none" />
 
+            {/* Vertical scroll indicator */}
+            <a
+                href="#about"
+                aria-label="Scroll to About section"
+                className="
+                    hidden md:flex flex-col items-center gap-3
+                    absolute right-8 bottom-10 z-10
+                    text-slate-400 hover:text-blue-400 light:text-slate-500 light:hover:text-blue-600
+                    transition-colors
+                "
+            >
+                <span className="animate-bot-float w-px h-14 bg-gradient-to-b from-transparent via-current to-current" />
+                <span
+                    className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+                    style={{ writingMode: "vertical-rl" }}
+                >
+                    Scroll
+                </span>
+            </a>
+
             {/* Content */}
             <div className="relative z-10 max-w-5xl w-full text-center">
 
