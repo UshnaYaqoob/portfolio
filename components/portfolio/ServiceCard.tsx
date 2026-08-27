@@ -160,7 +160,7 @@ export default function ServiceCard({
             ([entry]) => {
                 setVisible(entry.isIntersecting);
             },
-            { threshold: 0.98 }
+            { threshold: 0.7 }
         );
 
         observer.observe(el);
