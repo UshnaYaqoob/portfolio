@@ -37,7 +37,10 @@ export default function ProjectCard({
 
                 <ul className="space-y-2">
                     {points.map((p) => (
-                        <li key={p} className="text-slate-400 light:text-slate-600 text-sm">• {p}</li>
+                        <li key={p} className="flex items-start gap-2 text-slate-400 light:text-slate-600 text-sm">
+                            <span className="text-blue-400 text-base leading-none font-bold mt-0.5">•</span>
+                            {p}
+                        </li>
                     ))}
                 </ul>
 

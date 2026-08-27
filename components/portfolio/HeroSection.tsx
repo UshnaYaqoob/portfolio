@@ -234,7 +234,10 @@ export default function HeroSection() {
                             className="
                                 inline-flex
                                 items-center
+                                justify-center
                                 gap-2
+                                w-44
+                                sm:w-auto
                                 px-7
                                 py-3.5
                                 rounded-full
@@ -257,7 +260,10 @@ export default function HeroSection() {
                             className="
                                 inline-flex
                                 items-center
+                                justify-center
                                 gap-2
+                                w-44
+                                sm:w-auto
                                 px-7
                                 py-3.5
                                 rounded-full

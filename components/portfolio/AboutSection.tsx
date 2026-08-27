@@ -77,10 +77,10 @@ export default function AboutSection() {
                         </div>
 
                         {/* CTAs */}
-                        <div className="flex gap-3 pt-2">
+                        <div className="flex flex-col gap-3 pt-2 w-full max-w-[240px]">
                             <a
                                 href={ABOUT_CTA.primary.href}
-                                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-200"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-200"
                             >
                                 <MdFlashOn size={15} />
                                 {ABOUT_CTA.primary.label}
@@ -88,7 +88,7 @@ export default function AboutSection() {
 
                             <a
                                 href={ABOUT_CTA.secondary.href}
-                                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-slate-300 light:text-slate-700 rounded-full border border-slate-700 light:border-slate-300 hover:border-slate-500 light:hover:border-slate-500 hover:text-white light:hover:text-slate-900 transition-all duration-200"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-slate-300 light:text-slate-700 rounded-full border border-slate-700 light:border-slate-300 hover:border-slate-500 light:hover:border-slate-500 hover:text-white light:hover:text-slate-900 transition-all duration-200"
                             >
                                 {ABOUT_CTA.secondary.label}
                             </a>
