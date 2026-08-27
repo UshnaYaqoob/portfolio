@@ -236,7 +236,8 @@ export default function HeroSection() {
                                 items-center
                                 justify-center
                                 gap-2
-                                w-44
+                                whitespace-nowrap
+                                w-56
                                 sm:w-auto
                                 px-7
                                 py-3.5
@@ -262,7 +263,8 @@ export default function HeroSection() {
                                 items-center
                                 justify-center
                                 gap-2
-                                w-44
+                                whitespace-nowrap
+                                w-56
                                 sm:w-auto
                                 px-7
                                 py-3.5

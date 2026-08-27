@@ -158,12 +158,9 @@ export default function ServiceCard({
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                    observer.disconnect();
-                }
+                setVisible(entry.isIntersecting);
             },
-            { threshold: 0.2 }
+            { threshold: 0.98 }
         );
 
         observer.observe(el);

@@ -76,8 +76,7 @@ export default function AboutSection() {
                             ))}
                         </div>
 
-                        {/* CTAs */}
-                        <div className="flex flex-col gap-3 pt-2 w-full max-w-[240px]">
+                        <div className="flex flex-col gap-3 pt-2 w-full max-w-[240px] mx-auto">
                             <a
                                 href={ABOUT_CTA.primary.href}
                                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-200"
