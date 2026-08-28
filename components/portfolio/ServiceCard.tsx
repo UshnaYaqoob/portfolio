@@ -147,7 +147,10 @@ export default function ServiceCard({
                                         points,
                                         techs,
                                     }: ServiceCardProps) {
+    const [isFinePointer] = useState(() => typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches);
     const [visible, setVisible] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const active = isFinePointer ? hovered : visible;
     const cardRef = useRef<HTMLDivElement>(null);
     const Icon = ICON_MAP[iconKey];
     const image = SERVICE_IMAGES[title];
@@ -170,6 +173,8 @@ export default function ServiceCard({
     return (
         <div
             ref={cardRef}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             className={`relative rounded-2xl overflow-hidden bg-[#0d1b2e] light:bg-slate-50 border border-white/10 light:border-slate-900/10 hover:border-white/20 light:hover:border-slate-900/20 cursor-pointer h-[420px] transition-all duration-700 ease-out ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
@@ -180,9 +185,9 @@ export default function ServiceCard({
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${image})`,
-                        opacity: visible ? 1 : 0,
+                        opacity: active ? 1 : 0,
                         filter: "blur(4px) brightness(0.5)",
-                        transform: visible ? "scale(1.06)" : "scale(1.0)",
+                        transform: active ? "scale(1.06)" : "scale(1.0)",
                         transition: "opacity 0.5s ease, transform 0.5s ease",
                     }}
                 />
@@ -192,7 +197,7 @@ export default function ServiceCard({
             <div
                 className="absolute inset-0 z-[1]"
                 style={{
-                    background: visible ? "rgba(5,13,26,0.3)" : "transparent",
+                    background: active ? "rgba(5,13,26,0.3)" : "transparent",
                     transition: "background 0.5s ease",
                 }}
             />
@@ -207,14 +212,14 @@ export default function ServiceCard({
 
                 <h3
                     className="text-xl font-bold text-white light:text-slate-900 leading-snug transition-colors duration-300"
-                    style={visible ? { color: "#ffffff" } : undefined}
+                    style={active ? { color: "#ffffff" } : undefined}
                 >
                     {title}
                 </h3>
 
                 <p
                     className="text-[#8a9bb5] light:text-slate-600 text-sm leading-relaxed transition-colors duration-300"
-                    style={visible ? { color: "#c9d6e8" } : undefined}
+                    style={active ? { color: "#c9d6e8" } : undefined}
                 >
                     {description}
                 </p>
@@ -222,9 +227,9 @@ export default function ServiceCard({
                 {/* Slides in on hover */}
                 <div
                     style={{
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(10px)",
-                        maxHeight: visible ? "300px" : "0px",
+                        opacity: active ? 1 : 0,
+                        transform: active ? "translateY(0)" : "translateY(10px)",
+                        maxHeight: active ? "300px" : "0px",
                         overflow: "hidden",
                         transition: "opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, max-height 0.5s ease",
                     }}
@@ -259,8 +264,8 @@ export default function ServiceCard({
             <div
                 className="absolute bottom-0 left-0 right-0 z-20 px-5 pb-5"
                 style={{
-                    transform: visible ? "translateY(-100%)" : "translateY(0%)",
-                    opacity: visible ? 0 : 1,
+                    transform: active ? "translateY(-100%)" : "translateY(0%)",
+                    opacity: active ? 0 : 1,
                     transition: "transform 0.5s ease, opacity 0.4s ease",
                 }}
             >
