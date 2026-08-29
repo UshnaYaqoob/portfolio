@@ -147,13 +147,19 @@ export default function ServiceCard({
                                         points,
                                         techs,
                                     }: ServiceCardProps) {
-    const [isFinePointer] = useState(() => typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches);
+    const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
     const [visible, setVisible] = useState(false);
     const [hovered, setHovered] = useState(false);
-    const active = isFinePointer ? hovered : visible;
+    const active = isMobile ? visible : hovered;
     const cardRef = useRef<HTMLDivElement>(null);
     const Icon = ICON_MAP[iconKey];
     const image = SERVICE_IMAGES[title];
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     useEffect(() => {
         const el = cardRef.current;

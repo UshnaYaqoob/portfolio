@@ -9,7 +9,7 @@ import type { Project } from "@/types/projects";
 export const PROJECTS: Project[] = [
     {
         layout: "left",
-        image: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "/lawcurgus-project.jpg",
         badge: "LawCurgus",
         icon: FaBuilding,
         title: "Legal Management Platform",
@@ -23,7 +23,7 @@ export const PROJECTS: Project[] = [
     },
     {
         layout: "right",
-        image: "https://images.pexels.com/photos/5632395/pexels-photo-5632395.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "/greenounce-project.jpg",
         badge: "Greenounce",
         icon: FaGraduationCap,
         title: "Real-Time School Pickup Queue System",
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     },
     {
         layout: "left",
-        image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "/nexuspro-project.jpg",
         badge: "Nexus-Pro",
         icon: FaBolt,
         title: "Laboratory Payment System",
