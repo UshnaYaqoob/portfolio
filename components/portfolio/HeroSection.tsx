@@ -132,7 +132,7 @@ export default function HeroSection() {
                 px-6
                 py-20
                 overflow-hidden
-                bg-[#050d1a] light:bg-white
+                bg-[#050d1a] light:bg-gradient-to-br light:from-purple-100 light:via-blue-50 light:to-white
             "
         >
             {/* Animated background */}
@@ -170,13 +170,13 @@ export default function HeroSection() {
                 {/* Heading */}
                 <h1
                     className="
-                        text-4xl
-                        sm:text-5xl
+                        text-3xl
+                        sm:text-4xl
                         md:text-6xl
                         lg:text-[64px]
-                        leading-[1.15]
+                        leading-[1.2]
                         text-white light:text-slate-900
-                        mb-6
+                        mb-4 sm:mb-6
                     "
                     style={{ letterSpacing: "-0.5px" }}
                 >
@@ -205,11 +205,11 @@ export default function HeroSection() {
                     </span>
                 </h1>
                 {/* Skill Tags */}
-                <div className="flex flex-wrap items-center justify-center gap-7 mb-6">
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-7 mb-4 sm:mb-6">
                     {SKILL_TAGS.map((tag, index) => (
                         <span
                             key={tag}
-                            className="inline-flex items-center gap-2 text-sm font-medium text-slate-200 light:text-slate-700"
+                            className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium text-slate-200 light:text-slate-700"
                         >
                             <span
                                 className="w-2.5 h-2.5 rounded-full flex-shrink-0"
@@ -223,7 +223,7 @@ export default function HeroSection() {
                     ))}
                 </div>
                 {/* Bio */}
-                <p className="text-slate-400 light:text-slate-600 text-base md:text-lg leading-relaxed max-w-4xl mx-auto mb-10">
+                <p className="text-slate-400 light:text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl mx-auto mb-6 sm:mb-10">
                     {HERO_CONTENT.bio}
                 </p>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiArrowUpRight } from "react-icons/fi";
 import { NAVBAR_CONFIG } from "@/constants/navbar";
 import ThemeToggle from "./ThemeToggle";
 
@@ -59,23 +59,18 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center gap-8">
                     <ul className="flex items-center gap-8">
                         {NAVBAR_CONFIG.links.map((link) => (
-                            <li key={link.href}>
+                            <li key={link.href} className="flex flex-col gap-2.5 group">
+                                <span className="h-px w-full bg-white/15 light:bg-slate-900/15 group-hover:bg-blue-400 transition-colors duration-300" />
                                 <a
                                     href={link.href}
                                     className="
-                                        relative text-sm font-medium text-slate-400 light:text-slate-600
-                                        hover:text-white light:hover:text-slate-900 transition-colors group
+                                        inline-flex items-center gap-1
+                                        text-sm font-medium text-slate-400 light:text-slate-600
+                                        hover:text-white light:hover:text-slate-900 transition-colors
                                     "
                                 >
                                     {link.label}
-
-                                    <span
-                                        className="
-                                            absolute left-0 -bottom-1 h-px w-0
-                                            bg-blue-400 transition-all duration-300
-                                            group-hover:w-full
-                                        "
-                                    />
+                                    <FiArrowUpRight size={13} className="opacity-70" />
                                 </a>
                             </li>
                         ))}

@@ -1,18 +1,20 @@
-﻿import type { SectionHeaderProps } from "@/types/sectionHeader";
+import type { SectionHeaderProps } from "@/types/sectionHeader";
 
 export default function SectionHeader({
                                           overline,
                                           title,
                                           subtitle,
                                           center = false,
+                                          accent = "blue",
                                       }: SectionHeaderProps) {
     const alignment = center ? "text-center items-center" : "text-left items-start";
+    const overlineColor = accent === "purple" ? "text-purple-400" : "text-blue-400";
 
     return (
         <div className={`flex flex-col gap-3 ${alignment}`}>
 
             {/* Overline */}
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+            <span className={`text-xs font-semibold uppercase tracking-widest ${overlineColor}`}>
         {overline}
       </span>
 
